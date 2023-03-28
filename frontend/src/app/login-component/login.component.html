@@ -1,0 +1,31 @@
+<head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="login.component.css" rel="stylesheet">
+  <!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+<div class="login-popup-wrap new_login_popup">
+  <div class="login-popup-heading text-center">
+    <h4><i class="fa fa-lock" aria-hidden="true"></i> Login </h4>
+  </div>
+  <!--<form accept-charset="utf-8" method="post" action="">-->
+  <form id="loginMember " role="form" action="" method="post">
+    <div class="form-group">
+      <input type="email" class="form-control" id="user_email" name="user_email" placeholder="Enter e-mail"
+             [(ngModel)]="email">
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+             [(ngModel)]="password">
+    </div>
+    <button (click)="login()" class="btn btn-default login-popup-btn" name="submit" value="1">Login</button>
+  </form>
+  <div class="form-group text-center">
+    <a class="pwd-forget" href="javascript:void(0)" id="open_forgotPassword">Forget Password</a>
+  </div>
+  <div class="text-center">Not registered yet?<a href="rest/registration">click here</a>
+  </div>
+</div>
+</body>
