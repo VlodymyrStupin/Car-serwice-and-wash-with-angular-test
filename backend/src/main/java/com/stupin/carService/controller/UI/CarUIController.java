@@ -26,7 +26,7 @@ public class CarUIController {
 
     @PreAuthorize("hasAuthority('USER')")
     @GetMapping("garage")
-    public String viewUserGaragePage(@PathVariable("id") Integer id, Model model) {
+    public String viewUserGaragePage(@PathVariable("id") Long id, Model model) {
         model.addAttribute("car", new Car());
         model.addAttribute("cars", carService.getByUserId(id));
         model.addAttribute("user", userService.getById(id));
@@ -35,7 +35,7 @@ public class CarUIController {
 
     @PreAuthorize("hasAuthority('USER')")
     @PostMapping("add")
-    public String addCarToGarage(@PathVariable Integer id,
+    public String addCarToGarage(@PathVariable Long id,
                                  @ModelAttribute Car car,
                                  @RequestParam String brand,
                                  @RequestParam String model,

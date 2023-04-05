@@ -15,11 +15,12 @@ export class LoginService {
   }
 
   login(payload: any) {
-    return this.httpClient.post("http://localhost:80/rest/login", payload)
+    return this.httpClient.post("http://backend:8080/rest/login", payload)
   }
 
   getAccountPage(token: string) {
     this.header = this.header.set('Authorization', 'Bearer ' + token)
-    return this.httpClient.get("http://localhost:8080/rest/hello", {'headers': this.header})
+    console.log('this is my token '+token)
+    return this.httpClient.get("http://backend:8080/rest/hello", {'headers': this.header})
   }
 }

@@ -26,12 +26,12 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         String email = authentication.getName();
         User user = userService.getByEmail(email);
-        Integer id = user.getId();
+        Long id = user.getId();
         if (roles.contains("ADMIN")) {
-            httpServletResponse.sendRedirect("ui/admin/manage");
+            httpServletResponse.sendRedirect("admin/manage");
         }
         if (roles.contains("USER")) {
-            httpServletResponse.sendRedirect("ui/users/" + id);
+            httpServletResponse.sendRedirect("users/" + id);
         }
     }
 }

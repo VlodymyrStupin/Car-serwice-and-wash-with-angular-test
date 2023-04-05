@@ -1,7 +1,7 @@
 package com.stupin.carService.converter;
 
-import com.stupin.carService.domain.dto.User;
 import com.stupin.carService.domain.dao.UserDao;
+import com.stupin.carService.domain.dto.User;
 
 public class UserConverter {
     public static User toDto(UserDao userDao) {

@@ -18,15 +18,14 @@ public class CarDao {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
-    @Column
+    @Column(nullable = false)
     private String brand;
-    @Column
+    @Column(nullable = false)
     private String model;
-    @Column
+    @Column(nullable = false)
     private int odometer;
-    @Column(name = "production_year")
+    @Column(name = "production_year", nullable = false)
     private int productionYear;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserDao userDao;

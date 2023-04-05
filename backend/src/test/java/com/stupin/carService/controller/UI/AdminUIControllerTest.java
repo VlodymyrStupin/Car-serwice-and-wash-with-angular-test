@@ -40,7 +40,7 @@ class AdminUIControllerTest {
 
     @Test
     void testViewAdminManagePage() {
-        when(userService.getAll()).thenReturn(List.of(new User(Integer.valueOf(0), "name", "surname", "email", "password", "phoneNumber", List.of(null))));
+        when(userService.getAll()).thenReturn(List.of(new User(Long.valueOf(0), "name", "surname", "email", "password", "phoneNumber", List.of(null))));
 
         String result = adminUIController.viewAdminManagePage(null);
         Assertions.assertEquals("replaceMeWithExpectedResult", result);
@@ -48,18 +48,18 @@ class AdminUIControllerTest {
 
     @Test
     void testGetEditUserPage() {
-        when(userService.getAll()).thenReturn(List.of(new User(Integer.valueOf(0), "name", "surname", "email", "password", "phoneNumber", List.of(null))));
-        when(userService.getById(anyInt())).thenReturn(new User(Integer.valueOf(0), "name", "surname", "email", "password", "phoneNumber", List.of(null)));
+        when(userService.getAll()).thenReturn(List.of(new User(Long.valueOf(0), "name", "surname", "email", "password", "phoneNumber", List.of(null))));
+        when(userService.getById(anyLong())).thenReturn(new User(Long.valueOf(0), "name", "surname", "email", "password", "phoneNumber", List.of(null)));
 
-        String result = adminUIController.getEditUserPage(Integer.valueOf(0), null);
+        String result = adminUIController.getEditUserPage(Long.valueOf(0), null);
         Assertions.assertEquals("replaceMeWithExpectedResult", result);
     }
 
     @Test
     void testEditUser() {
-        when(userService.save(any())).thenReturn(new User(Integer.valueOf(0), "name", "surname", "email", "password", "phoneNumber", List.of(null)));
+        when(userService.save(any())).thenReturn(new User(Long.valueOf(0), "name", "surname", "email", "password", "phoneNumber", List.of(null)));
 
-        String result = adminUIController.editUser(new User(Integer.valueOf(0), "name", "surname", "email", "password", "phoneNumber", List.of(null)), "name", "surname", "email", "phoneNumber", "password");
+        String result = adminUIController.editUser(new User(Long.valueOf(0), "name", "surname", "email", "password", "phoneNumber", List.of(null)), "name", "surname", "email", "phoneNumber", "password");
         Assertions.assertEquals("replaceMeWithExpectedResult", result);
     }
 

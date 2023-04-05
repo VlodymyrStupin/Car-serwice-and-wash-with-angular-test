@@ -2,13 +2,12 @@ package com.stupin.carService.service.impl;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.stupin.carService.domain.dao.UserDao;
 import com.stupin.carService.domain.dto.AuthRequest;
 import com.stupin.carService.domain.dto.AuthResponse;
-import com.stupin.carService.domain.dto.Token;
-import com.stupin.carService.domain.dto.UserImplUserDetails;
+
 import com.stupin.carService.service.LoginService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,12 +34,12 @@ public class LoginServiceImpl implements LoginService {
         try {
             Authentication authenticate = authorizationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword()));
-            UserImplUserDetails user = (UserImplUserDetails) authenticate.getPrincipal();
+            UserDao user = (UserDao) authenticate.getPrincipal();
 
             Algorithm algorithm = Algorithm.HMAC256(KEY);
             String token = JWT.create()
                     .withSubject(user.getUsername())
-                    .withIssuer("Eminem")
+                    .withIssuer("Volodymyr")
                     .withExpiresAt(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24))
                     .withClaim("roles", user.getAuthorities().stream()
                             .map(GrantedAuthority::getAuthority)

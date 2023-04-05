@@ -31,7 +31,7 @@ public class BookingUIController {
 
     @PreAuthorize("hasAuthority('USER')")
     @GetMapping("ui/users/{id}/booking")
-    public String viewUserAppointmentPage(@PathVariable("id") Integer id, Model model) {
+    public String viewUserAppointmentPage(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getById(id));
         model.addAttribute("products", productService.getAll());
         model.addAttribute("booking", new Booking());

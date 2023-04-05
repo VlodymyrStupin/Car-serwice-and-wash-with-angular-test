@@ -12,7 +12,7 @@ public interface CarRepository extends JpaRepository<CarDao, String> {
     @Query("SELECT c FROM CarDao c WHERE c.id = ?1")
     CarDao findByVinCode(String id);
     @Query("SELECT c FROM CarDao c WHERE c.userDao.id = ?1")
-    List<CarDao> findByUserId(Integer id);
+    List<CarDao> findByUserId(Long id);
     @Query("DELETE FROM CarDao c WHERE c.id = ?1")
     void deleteByVin(String vin);
 }

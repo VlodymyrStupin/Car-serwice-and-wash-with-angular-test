@@ -37,8 +37,8 @@ public class UserUIController {
 
     @PreAuthorize("hasAuthority('USER')")
     @GetMapping("{id}/profile")
-    public String viewUserProfilePage(@PathVariable Integer userId, Model model) {
-        model.addAttribute(model.addAttribute("user", userService.getById(userId)));
+    public String viewUserProfilePage(@PathVariable Long id, Model model) {
+        model.addAttribute(model.addAttribute("user", userService.getById(id)));
         return "user/user_profile_page";
     }
 
@@ -64,7 +64,7 @@ public class UserUIController {
 
     @PreAuthorize("hasAuthority('USER')")
     @GetMapping("/{id}")
-    public String viewUserPage(@PathVariable("id") Integer id, Model model) {
+    public String viewUserPage(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.getById(id));
         return "user/user_page";
     }

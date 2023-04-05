@@ -29,7 +29,7 @@ public class CarService {
         return CarConverter.carToDto(carRepository.findByVinCode(id));
     }
 
-    public List<Car> getByUserId(Integer id) {
+    public List<Car> getByUserId(Long id) {
         List<Car> cars = new ArrayList<>();
         carRepository.findByUserId(id).forEach(it -> cars.add(new Car(it.getId(),
                 it.getBrand(), it.getModel(), it.getOdometer(), it.getProductionYear(), toDto(it.getUserDao()))));

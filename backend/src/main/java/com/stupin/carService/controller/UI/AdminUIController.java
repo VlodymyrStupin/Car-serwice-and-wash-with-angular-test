@@ -45,7 +45,7 @@ public class AdminUIController {
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("{id}/edit")
-    public String getEditUserPage(@PathVariable Integer id, Model model) {
+    public String getEditUserPage(@PathVariable Long id, Model model) {
         model.addAttribute("user", userService.getById(id));
         model.addAttribute("users", userService.getAll());
         return "admin/manage_users_page";

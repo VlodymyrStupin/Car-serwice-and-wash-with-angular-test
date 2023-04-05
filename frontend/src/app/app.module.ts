@@ -8,20 +8,22 @@ import { RegisterComponent } from './register-component/register.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 import {RouterModule} from "@angular/router";
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegistrationComponent
   ],
   imports: [
     FormsModule,
     HttpClientModule,
     BrowserModule,
     RouterModule.forRoot([
-      {path: '/rest/login', component: LoginComponent},
-      {path: '/rest/registration', component: RegisterComponent},
+      {path: 'rest/login', component: LoginComponent},
+      {path: 'rest/registration', component: RegisterComponent},
     ]),
     AppRoutingModule
   ],

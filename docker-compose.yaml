@@ -22,13 +22,13 @@ services:
       - my-sql
     networks:
       - car-service-network
-    restart: always
+#    restart: always
 
   frontend:
       build: ./frontend
       ports:
-        - "80:80"
-      depends_on:
+        - "4200:80"
+      links:
         - backend
       networks:
         - car-service-network
